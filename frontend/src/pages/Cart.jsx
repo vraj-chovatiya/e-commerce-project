@@ -32,39 +32,43 @@ const Cart = () => {
         <Tittle text1={'YOUR'} text2={'CART'} />
       </div>
       <div>
-        {cartData.map((item, index) => {
-          const productData = products.find((product) => product._id === item._id);
-          return (
-            <div className='py-4 text-gray-700 border-t border-b grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] gap-4 items-center' key={index}>
-              <div className='flex items-start gap-6'>
-                <img className='w-16 sm:w-20' src={productData.image[0]} alt="" />
-                <div>
-                  <p className='text-sm sm:text-lg font-medium'>{productData.name}</p>
-                  <div className='flex items-center gap-2 mt-2'>
-                    <p>{currancy}{productData.price}</p>
-                    <p className='px-2 sm:px-3 sm:py-1 border bg-slate-50'>{item.size}</p>
+        {cartData.length > 0 ? (
+          cartData.map((item, index) => {
+            const productData = products.find((product) => product._id === item._id);
+            return (
+              <div className='py-4 text-gray-700 border-t border-b grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] gap-4 items-center' key={index}>
+                <div className='flex items-start gap-6'>
+                  <img className='w-16 sm:w-20' src={productData.image[0]} alt="" />
+                  <div>
+                    <p className='text-sm sm:text-lg font-medium'>{productData.name}</p>
+                    <div className='flex items-center gap-2 mt-2'>
+                      <p>{currancy}{productData.price}</p>
+                      <p className='px-2 sm:px-3 sm:py-1 border bg-slate-50'>{item.size}</p>
+                    </div>
                   </div>
                 </div>
+
+                <input
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const quantity = value === '' ? 0 : Number(value);
+                    if (quantity > 0) {
+                      updateQuantity(item._id, item.size, quantity);
+                    }
+                  }}
+                  className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-2'
+                  type="number"
+                  min={1}
+                  defaultValue={item.quantity}
+                />
+
+                <img onClick={() => updateQuantity(item._id, item.size, 0)} className='cursor-pointer w-4 mr-4 sm:w-5' src={assets.bin_icon} alt="" />
               </div>
-
-              <input
-                onChange={(e) => {
-                  const value = e.target.value;
-                  const quantity = value === '' ? 0 : Number(value);
-                  if (quantity > 0) {
-                    updateQuantity(item._id, item.size, quantity);
-                  }
-                }}
-                className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-2'
-                type="number"
-                min={1}
-                defaultValue={item.quantity}
-              />
-
-              <img onClick={() => updateQuantity(item._id, item.size, 0)} className='cursor-pointer w-4 mr-4 sm:w-5' src={assets.bin_icon} alt="" />
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <div className='text-center text-gray-500 py-10'>No items in cart</div>
+        )}
       </div>
       <div className='flex justify-end my-20'>
         <div className='w-full sm:w-[450px]'>

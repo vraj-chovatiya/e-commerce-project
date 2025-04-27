@@ -115,8 +115,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-xl">Our Store</h3>
-                  <p className="text-gray-500 mt-2">54709 Willms Station</p>
-                  <p className="text-gray-500">Suite 350, Washington, USA</p>
+                  <p className="text-gray-500 mt-2">Willms Station</p>
+                  <p className="text-gray-500">123 Commerce St, Surat, 394101</p>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-xl">Call Us</h3>
-                  <p className="text-gray-500 mt-2">(415) 555-0132</p>
+                  <p className="text-gray-500 mt-2">8866552541</p>
                   <p className="text-gray-500">Mon-Fri, 9am - 6pm</p>
                 </div>
               </div>
@@ -141,8 +141,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-xl">Email Us</h3>
-                  <p className="text-gray-500 mt-2">admin@forever.com</p>
-                  <p className="text-gray-500">support@forever.com</p>
+                  <p className="text-gray-500 mt-2">admin@gostore.com</p>
+                  <p className="text-gray-500">support@gostore.com</p>
                 </div>
               </div>
             </div>
