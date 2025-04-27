@@ -2,25 +2,77 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 4%;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
   
   .logo {
-    width: max(10%, 80px);
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .brand-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
   }
   
   .logout-button {
-    background-color: #fd1212; /* Tailwind gray-500 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f56565;
     color: white;
-    padding: 0.5rem 1.25rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
     font-size: 0.875rem;
-    transition: background-color 0.2s ease;
-    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
   }
   
   .logout-button:hover {
-    background-color: #da0f0f; /* Tailwind gray-600 */
+    background-color: #e53e3e;
+    transform: translateY(-1px);
+  }
+  
+  .logout-button:active {
+    transform: translateY(0);
+  }
+  
+  .logout-icon {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 640px) {
+    .navbar {
+      padding: 0.75rem 1rem;
+    }
+    
+    .brand-name {
+      font-size: 1.25rem;
+    }
+    
+    .logout-button {
+      padding: 0.4rem 0.8rem;
+    }
   }
   
